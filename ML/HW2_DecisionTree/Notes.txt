@@ -1,0 +1,1763 @@
+
+CMSC352 Machine Learning
+
+Test runs and feedback for Homework #2.  I ran a set of simple tests
+outlined in testPrune.py as well as the test of the mushroom problem
+in mushGrade.py.
+
+
+Grading Rubric
+Topic		MAX	PTS
+Report		20	20
+testPrune	30	30
+mushGrade	30	30
+Code		20	17
+---------------------------
+
+Score (100 max)		97
+
+
+General comments about the code are found here.  Specific details in
+your code are marked by 'XX'.
+
+Good job!  Your code passed every test below.
+
+Your mushroom results are good, though there should only be 8 nodes remaining.  I suspect this is because you don't quite implement the algorithm outlinned in Mitchell. (-3)  That said, your code is clean and fast, too.
+
+
+
+
+Testing using testPrune.py============
+t1.dat Pruned Correct 11 11
+t1p0.dat Pruned Correct 10 11
+t1p1.dat Pruned Correct 11 11
+t1p2.dat Pruned Correct 10 11
+t1p3.dat Pruned Correct 12 12
+t1p4.dat Pruned Correct 12 13
+t1p5.dat Pruned Correct 14 14
+t1p6.dat Pruned Correct 32 35
+t1p7.dat Pruned Correct 10 20
+t1p8.dat Pruned Correct 16 17
+t1p9.dat Pruned Correct 8 8
+t1p10.dat Pruned Correct 9 11
+RUNNING t1.dat t1.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1.dat
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1.dat=============================
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+t1.dat Pruned Correct 11 11
+RUNNING t1.dat t1p0.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p0.dat
+Correct 9 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'yes': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'no': 1}
+
+PRUNE t1p0.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 	->	 yes yes {'yes': 2, 'no': 1}
+Num nodes 8
+t1p0.dat Pruned Correct 10 11
+RUNNING t1.dat t1p1.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p1.dat
+Correct 10 11
+  Wind yes {'yes': 7, 'no': 4}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 3, 'yes': 3}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 3, 'no': 0}
+ 		 cloud
+ 			 	->	 no no {'yes': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p1.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+  Wind yes {'yes': 7, 'no': 4}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 3, 'yes': 3}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 	->	 yes yes {'yes': 3, 'no': 0}
+Num nodes 8
+t1p1.dat Pruned Correct 11 11
+RUNNING t1.dat t1p2.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p2.dat
+Correct 10 11
+  Wind yes {'yes': 5, 'no': 6}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 5, 'yes': 1}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 1, 'no': 2}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'no': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p2.dat=============================
+Prune: Humid hi
+Prune: Humid lo
+  Wind yes {'yes': 5, 'no': 6}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 	->	 no no {'no': 5, 'yes': 1}
+Num nodes 6
+t1p2.dat Pruned Correct 10 11
+RUNNING t1.dat t1p3.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p3.dat
+Correct 9 12
+  Wind yes {'yes': 4, 'no': 8}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 7, 'yes': 0}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 0, 'no': 4}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'no': 2}
+ 		 sun
+ 			 	->	 yes yes {'no': 1}
+
+PRUNE t1p3.dat=============================
+Prune: Humid hi
+Prune: Humid lo
+  Wind yes {'yes': 4, 'no': 8}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 	->	 no no {'no': 7, 'yes': 0}
+Num nodes 6
+t1p3.dat Pruned Correct 12 12
+RUNNING t1.dat t1p4.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p4.dat
+Correct 10 13
+  Wind yes {'yes': 5, 'no': 8}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 7, 'yes': 1}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 1, 'no': 4}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'no': 3}
+
+PRUNE t1p4.dat=============================
+Prune: Humid hi
+Prune: Humid lo
+  Wind yes {'yes': 5, 'no': 8}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 	->	 no no {'no': 7, 'yes': 1}
+Num nodes 6
+t1p4.dat Pruned Correct 12 13
+RUNNING t1.dat t1p5.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p5.dat
+Correct 10 14
+  Wind yes {'yes': 10, 'no': 4}
+  weak
+ 	 Out yes {'yes': 8, 'no': 0}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'yes': 4}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p5.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+  Wind yes {'yes': 10, 'no': 4}
+  weak
+ 	 	->	 yes yes {'yes': 8, 'no': 0}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 8
+t1p5.dat Pruned Correct 14 14
+RUNNING t1.dat t1p6.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p6.dat
+Correct 8 35
+  Wind yes {'yes': 29, 'no': 6}
+  weak
+ 	 Out yes {'yes': 15, 'no': 3}
+ 	 cloud
+ 		 	->	 yes yes {'no': 3}
+ 	 rain
+ 		 	->	 no no {'yes': 12}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 3, 'yes': 14}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 14, 'no': 0}
+ 		 cloud
+ 			 	->	 no no {'yes': 12}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p6.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+  Wind yes {'yes': 29, 'no': 6}
+  weak
+ 	 	->	 yes yes {'yes': 15, 'no': 3}
+  strong
+ 	 Humid no {'no': 3, 'yes': 14}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 	->	 yes yes {'yes': 14, 'no': 0}
+Num nodes 5
+t1p6.dat Pruned Correct 32 35
+RUNNING t1.dat t1p7.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p7.dat
+Correct 10 20
+  Wind yes {'yes': 5, 'no': 15}
+  weak
+ 	 Out yes {'yes': 3, 'no': 11}
+ 	 cloud
+ 		 	->	 yes yes {'no': 10}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p7.dat=============================
+  Wind yes {'yes': 5, 'no': 15}
+  weak
+ 	 Out yes {'yes': 3, 'no': 11}
+ 	 cloud
+ 		 	->	 yes yes {'no': 10}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+t1p7.dat Pruned Correct 10 20
+RUNNING t1.dat t1p8.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p8.dat
+Correct 9 17
+  Wind yes {'yes': 10, 'no': 7}
+  weak
+ 	 Out yes {'yes': 9, 'no': 0}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'yes': 5}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 7, 'yes': 1}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 1, 'no': 4}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'no': 3}
+
+PRUNE t1p8.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+Prune: Humid hi
+Prune: Humid lo
+  Wind yes {'yes': 10, 'no': 7}
+  weak
+ 	 	->	 yes yes {'yes': 9, 'no': 0}
+  strong
+ 	 	->	 no no {'no': 7, 'yes': 1}
+Num nodes 3
+t1p8.dat Pruned Correct 16 17
+RUNNING t1.dat t1p9.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p9.dat
+Correct 0 8
+  Wind yes {'yes': 8, 'no': 0}
+  weak
+ 	 Out yes {'yes': 4, 'no': 0}
+ 	 cloud
+ 		 	->	 yes yes {}
+ 	 rain
+ 		 	->	 no no {'yes': 4}
+ 	 sun
+ 		 	->	 yes yes {}
+  strong
+ 	 Humid no {'no': 0, 'yes': 4}
+ 	 hi
+ 		 	->	 no no {}
+ 	 lo
+ 		 Out yes {'yes': 4, 'no': 0}
+ 		 cloud
+ 			 	->	 no no {'yes': 4}
+ 		 rain
+ 			 	->	 yes yes {}
+ 		 sun
+ 			 	->	 yes yes {}
+
+PRUNE t1p9.dat=============================
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+Prune: Out cloud
+Prune: Out rain
+Prune: Out sun
+Prune: Wind weak
+Prune: Wind strong
+  	->	 yes yes {'yes': 8, 'no': 0}
+Num nodes 1
+t1p9.dat Pruned Correct 8 8
+RUNNING t1.dat t1p10.dat ==================================
+Correct 11 11
+  Wind yes {'yes': 6, 'no': 5}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 4, 'yes': 2}
+ 	 hi
+ 		 	->	 no no {'no': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+Num nodes 11
+
+Classify.............................. t1p10.dat
+Correct 8 11
+  Wind yes {'yes': 9, 'no': 2}
+  weak
+ 	 Out yes {'yes': 4, 'no': 1}
+ 	 cloud
+ 		 	->	 yes yes {'yes': 1}
+ 	 rain
+ 		 	->	 no no {'no': 1}
+ 	 sun
+ 		 	->	 yes yes {'yes': 3}
+  strong
+ 	 Humid no {'no': 1, 'yes': 5}
+ 	 hi
+ 		 	->	 no no {'yes': 3}
+ 	 lo
+ 		 Out yes {'yes': 2, 'no': 1}
+ 		 cloud
+ 			 	->	 no no {'no': 1}
+ 		 rain
+ 			 	->	 yes yes {'yes': 1}
+ 		 sun
+ 			 	->	 yes yes {'yes': 1}
+
+PRUNE t1p10.dat=============================
+Prune: Wind weak
+Prune: Wind strong
+  	->	 yes yes {'yes': 9, 'no': 2}
+Num nodes 1
+t1p10.dat Pruned Correct 9 11
+Testing using mushGrade.py============
+Num nodes 1153
+Pre-prune train correct  2257	 2257	100.000 Pct
+Num nodes 1153
+Pre-pruning test correct  1371	 1694	80.933 Pct
+
+Pruning===============================
+Num nodes 1153
+Validation correct  1364	 1693	80.567 Pct
+Prune: capcolor y
+Prune: capcolor w
+Prune: capsurface y
+Prune: capsurface s
+Prune: capsurface y
+Prune: capsurface s
+Prune: population n
+Prune: population s
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: habitat m
+Prune: habitat p
+Prune: habitat d
+Prune: habitat g
+Prune: capsurface y
+Prune: capsurface s
+Prune: capsurface y
+Prune: capsurface s
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: population n
+Prune: population s
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor g
+Prune: capsurface y
+Prune: capsurface s
+Prune: capcolor w
+Prune: capcolor n
+Prune: capcolor y
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: sporeprintcolor u
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capcolor w
+Prune: capcolor y
+Prune: population n
+Prune: population s
+Prune: capsurface y
+Prune: capsurface s
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: habitat g
+Prune: habitat p
+Prune: habitat d
+Prune: population y
+Prune: population s
+Prune: capcolor y
+Prune: capcolor n
+Prune: capsurface s
+Prune: capsurface f
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: sporeprintcolor u
+Prune: capshape x
+Prune: capshape b
+Prune: capshape f
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: population n
+Prune: population s
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: capsurface y
+Prune: capsurface s
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: population n
+Prune: population s
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: capcolor w
+Prune: capcolor y
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor g
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capcolor w
+Prune: capcolor y
+Prune: capsurface f
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape f
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: capcolor y
+Prune: capcolor n
+Prune: capcolor y
+Prune: capcolor n
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population s
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capshape x
+Prune: capshape f
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: population n
+Prune: population s
+Prune: population n
+Prune: population s
+Prune: capshape x
+Prune: capshape b
+Prune: capcolor y
+Prune: capcolor n
+Prune: capcolor w
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape b
+Prune: capcolor w
+Prune: capcolor y
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: capshape x
+Prune: capshape f
+Prune: gillcolor w
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: capshape x
+Prune: capshape f
+Prune: population s
+Prune: population v
+Prune: habitat u
+Prune: habitat g
+Prune: population s
+Prune: population v
+Prune: population s
+Prune: population v
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: gillcolor w
+Prune: gillcolor h
+Prune: stalksurfaceabovering f
+Prune: stalksurfaceabovering s
+Prune: population s
+Prune: population v
+Prune: gillcolor w
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: habitat u
+Prune: habitat g
+Prune: population s
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: stalksurfaceabovering f
+Prune: stalksurfaceabovering s
+Prune: population s
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: stalksurfaceabovering f
+Prune: stalksurfaceabovering s
+Prune: habitat u
+Prune: habitat g
+Prune: capshape x
+Prune: capshape f
+Prune: capshape x
+Prune: capshape f
+Prune: capshape x
+Prune: capshape f
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: gillcolor w
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: capshape x
+Prune: capshape f
+Prune: capsurface y
+Prune: capsurface f
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: population y
+Prune: population v
+Prune: habitat d
+Prune: habitat p
+Prune: habitat g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: habitat g
+Prune: habitat p
+Prune: habitat d
+Prune: population y
+Prune: population v
+Prune: capsurface y
+Prune: capsurface f
+Prune: capshape x
+Prune: capshape f
+Prune: habitat g
+Prune: habitat p
+Prune: habitat d
+Prune: capsurface y
+Prune: capsurface f
+Prune: capsurface y
+Prune: capsurface f
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: capcolor y
+Prune: capcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: capsurface y
+Prune: capsurface f
+Prune: population y
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: capsurface y
+Prune: capsurface f
+Prune: capcolor y
+Prune: capcolor g
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capcolor y
+Prune: capcolor g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capsurface y
+Prune: capsurface f
+Prune: capsurface y
+Prune: capsurface f
+Prune: gillcolor p
+Prune: gillcolor g
+Prune: capcolor y
+Prune: capcolor g
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: capsurface y
+Prune: capsurface f
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor y
+Prune: capcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor y
+Prune: capcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: population y
+Prune: population v
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: capcolor y
+Prune: capcolor g
+Prune: capcolor y
+Prune: capcolor g
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering p
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor y
+Prune: capcolor g
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population v
+Prune: capsurface y
+Prune: capsurface f
+Prune: capsurface y
+Prune: capsurface f
+Prune: habitat g
+Prune: habitat p
+Prune: habitat d
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: habitat g
+Prune: habitat p
+Prune: habitat d
+Prune: population y
+Prune: population v
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: habitat d
+Prune: habitat p
+Prune: habitat g
+Prune: capcolor y
+Prune: capcolor g
+Prune: habitat d
+Prune: habitat g
+Prune: capcolor y
+Prune: capcolor g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: gillcolor g
+Prune: capcolor y
+Prune: capcolor g
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering n
+Prune: stalkcolorabovering b
+Prune: stalkcolorabovering p
+Prune: habitat u
+Prune: habitat g
+Prune: capcolor w
+Prune: capcolor n
+Prune: population s
+Prune: population v
+Prune: capcolor w
+Prune: capcolor n
+Prune: habitat u
+Prune: habitat g
+Prune: capsurface y
+Prune: capsurface s
+Prune: capcolor w
+Prune: capcolor n
+Prune: capshape x
+Prune: capshape f
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: habitat u
+Prune: habitat g
+Prune: capcolor w
+Prune: capcolor n
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: population s
+Prune: population v
+Prune: habitat u
+Prune: habitat g
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor w
+Prune: capcolor n
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor w
+Prune: capcolor n
+Prune: population s
+Prune: population v
+Prune: capsurface y
+Prune: capsurface s
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: habitat u
+Prune: habitat g
+Prune: capsurface y
+Prune: capsurface s
+Prune: capcolor w
+Prune: capcolor n
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor p
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capsurface s
+Prune: capsurface f
+Prune: gillspacing w
+Prune: gillspacing c
+Prune: population s
+Prune: population v
+Prune: capsurface f
+Prune: capsurface s
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capsurface f
+Prune: capsurface s
+Prune: sporeprintcolor n
+Prune: sporeprintcolor k
+Prune: capcolor w
+Prune: capcolor p
+Prune: capcolor g
+Prune: population y
+Prune: population v
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape k
+Prune: stalksurfacebelowring y
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: capsurface s
+Prune: capsurface f
+Prune: population s
+Prune: population a
+Prune: capshape x
+Prune: capshape f
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: capsurface f
+Prune: capsurface s
+Prune: capshape x
+Prune: capshape f
+Prune: capsurface f
+Prune: capsurface s
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: stalksurfaceabovering f
+Prune: stalksurfaceabovering s
+Prune: capsurface f
+Prune: capsurface s
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: capsurface s
+Prune: capsurface f
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: population s
+Prune: population a
+Prune: capshape x
+Prune: capshape f
+Prune: population s
+Prune: population a
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: capsurface s
+Prune: capsurface f
+Prune: capshape x
+Prune: capshape f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population v
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population v
+Prune: capcolor e
+Prune: capcolor g
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: population y
+Prune: population v
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capshape x
+Prune: capshape f
+Prune: capshape x
+Prune: capshape f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capshape x
+Prune: capshape f
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: population y
+Prune: population v
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capsurface y
+Prune: capsurface f
+Prune: capcolor n
+Prune: capcolor e
+Prune: capsurface y
+Prune: capsurface f
+Prune: capsurface y
+Prune: capsurface f
+Prune: population y
+Prune: population v
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: population y
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor n
+Prune: capcolor e
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: population y
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: capcolor n
+Prune: capcolor e
+Prune: capcolor g
+Prune: capsurface y
+Prune: capsurface f
+Prune: population y
+Prune: population v
+Prune: capsurface y
+Prune: capsurface f
+Prune: capshape x
+Prune: capshape f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: population y
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: population y
+Prune: population v
+Prune: capshape x
+Prune: capshape f
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capcolor g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: capcolor g
+Prune: capcolor n
+Prune: capcolor e
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: capcolor n
+Prune: capcolor e
+Prune: capcolor g
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: population y
+Prune: population s
+Prune: population a
+Prune: population v
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: capcolor w
+Prune: capcolor n
+Prune: capcolor g
+Prune: population s
+Prune: population a
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: capcolor w
+Prune: capcolor n
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: capsurface f
+Prune: capsurface s
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: population s
+Prune: population a
+Prune: stalksurfaceabovering f
+Prune: stalksurfaceabovering s
+Prune: capsurface f
+Prune: capsurface s
+Prune: stalksurfacebelowring f
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: capsurface f
+Prune: capsurface s
+Prune: population s
+Prune: population a
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: population s
+Prune: population a
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: gillcolor p
+Prune: gillcolor h
+Prune: population y
+Prune: population v
+Prune: gillsize n
+Prune: gillsize b
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: population y
+Prune: population v
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor g
+Prune: gillcolor w
+Prune: gillcolor h
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: population a
+Prune: population y
+Prune: population s
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: gillsize n
+Prune: gillsize b
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: population s
+Prune: population a
+Prune: stalksurfacebelowring s
+Prune: stalksurfacebelowring f
+Prune: stalksurfaceabovering s
+Prune: stalksurfaceabovering f
+Prune: gillspacing w
+Prune: gillspacing c
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor h
+Prune: gillcolor n
+Prune: gillcolor k
+Prune: capsurface y
+Prune: capsurface f
+Prune: capsurface s
+Prune: population y
+Prune: population v
+Prune: stalkcolorbelowring w
+Prune: stalkcolorbelowring p
+Prune: stalkcolorbelowring g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: population y
+Prune: population v
+Prune: population y
+Prune: population v
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: capsurface y
+Prune: capsurface f
+Prune: stalkcolorabovering w
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: stalkcolorabovering p
+Prune: stalkcolorabovering g
+Prune: capsurface y
+Prune: capsurface f
+Prune: population y
+Prune: population v
+Prune: gillcolor w
+Prune: gillcolor n
+Prune: gillcolor p
+Prune: gillcolor u
+Prune: gillcolor w
+Prune: gillcolor r
+Prune: gillcolor g
+Prune: capsurface y
+Prune: capsurface s
+Prune: gillcolor w
+Prune: gillcolor g
+Prune: gillcolor r
+Prune: habitat m
+Prune: habitat g
+Prune: gillcolor w
+Prune: gillcolor r
+Prune: gillcolor g
+Prune: capshape b
+Prune: capshape f
+Prune: gillcolor r
+Prune: gillcolor g
+Prune: capsurface y
+Prune: capsurface s
+Prune: capshape b
+Prune: capshape f
+Prune: capcolor b
+Prune: capcolor p
+Prune: capcolor w
+Prune: gillcolor w
+Prune: gillcolor y
+Prune: capcolor n
+Prune: capcolor e
+Prune: capshape x
+Prune: capshape k
+Prune: capshape f
+Prune: gillattachment f
+Prune: gillattachment a
+Num nodes 152
+Post-pruning valid correct  1520	 1693	89.781 Pct
+Num nodes 152
+Post-pruning test correct  1524	 1694	89.965 Pct
