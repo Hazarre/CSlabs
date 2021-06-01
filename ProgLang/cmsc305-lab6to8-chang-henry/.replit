@@ -1,0 +1,2 @@
+run = "javac com/craftinginterpreters/jlisp/*.java -Xdiags:verbose &&  java com.craftinginterpreters.jlisp.Jlisp "
+
