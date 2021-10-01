@@ -1,0 +1,7 @@
+sven@cog:sol$ java SATBrute prob1.txt 
+prob1.txt:  1 -1 -1 1
+sven@cog:sol$ java SATBrute prob2.txt 
+prob2.txt:  1 -1 -1 1
+sven@cog:sol$ java SATBrute prob3.txt 
+prob3.txt:  unsatisfiable
+
